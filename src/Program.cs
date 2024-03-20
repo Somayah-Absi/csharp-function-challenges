@@ -31,14 +31,51 @@ namespace FunctionChallenges
 
             // Challenge 3: Guessing Game
             Console.WriteLine("\nChallenge 3: Guessing Game");
-            // Uncomment to test the GuessingGame method
-            // GuessingGame(); // Expected outcome: User input until the correct number is guessed or user inputs `Quit`
+            
+            GuessingGame(); // Expected outcome: User input until the correct number is guessed or user inputs `Quit`
 
             // Challenge 4: Simple Word Reversal
             // Console.WriteLine("\nChallenge 4: Simple Word Reversal");
             // string sentence = "This is the original sentence!";
             // string reversed = ReverseWords(sentence);
             // Console.WriteLine(reversed); // Expected outcome: "sihT si eht lanigiro !ecnetnes"
+        }
+
+         static void GuessingGame()
+        {
+            Random random = new Random();
+        int randomNumber = random.Next(1, 100);
+
+        while (true)
+        {
+            Console.WriteLine("__________________________________________________________");
+            Console.WriteLine("Enter your guessing number or enter 'quit' to end the game: ");
+                Console.WriteLine("__________________________________________________________");
+            string input = Console.ReadLine()?? "";
+
+            if (input == "quit")
+            {
+                Console.WriteLine("The game has ended.");
+                break;
+            }
+
+            if (!int.TryParse(input, out int guess))
+            {
+                Console.WriteLine("Please enter a valid number.");
+                continue;
+            }
+
+            if (guess == randomNumber)
+            {
+                Console.WriteLine("Congratulations! You guessed the correct number.");
+                break;
+            }
+            else
+            {
+                Console.WriteLine(guess < randomNumber ? "you almost there ,just try a higher number!" : "you almost there ,just try a lower number!");
+            }
+        }
+            
         }
 
         // private static string ReverseWords(string sentence)
@@ -51,7 +88,7 @@ namespace FunctionChallenges
         //     throw new NotImplementedException();
         // }
 
-        private static void StringNumberProcessor(string v1, int v2, int v3, string v4)
+         static void StringNumberProcessor(string v1, int v2, int v3, string v4)
         {
             int sum = v2 + v3;
             Console.WriteLine($"{v1} {v4}; {sum}");
