@@ -88,10 +88,25 @@ namespace FunctionChallenges
         //     throw new NotImplementedException();
         // }
 
-         static void StringNumberProcessor(string v1, int v2, int v3, string v4)
+         static void StringNumberProcessor(params object[] inputs)
         {
-            int sum = v2 + v3;
-            Console.WriteLine($"{v1} {v4}; {sum}");
+            string concatenate = "";
+            int sum = 0;
+            foreach (var input in inputs) {
+                if (input is string)
+                {
+                   concatenate += (string)input + " ";
+                }
+                else {
+                    sum += (int)input;
+
+                }
+
+
+             }
+            concatenate= concatenate.Trim();
+        Console.WriteLine($"{concatenate}; {sum}");
+            
         }
     }
 }
