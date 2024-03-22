@@ -79,10 +79,20 @@ namespace FunctionChallenges
             
         }
 
-        // private static string ReverseWords(string sentence)
-        // {
-        //     throw new NotImplementedException();
-        // }
+        public static string ReverseWords(string sentence)
+    {
+
+           string[] words = sentence.Split(' ');
+
+
+        IEnumerable<string> reversedWords = words.Select(word => new string(word.Reverse().ToArray()));
+
+
+string reversedSentence = string.Join(" ", reversedWords);
+
+return reversedSentence;
+
+    }
 
         // private static void SwapObjects(ref int num1, ref int num2)
         // {
