@@ -1,5 +1,4 @@
 using System;
-using System.Text;
 
 namespace FunctionChallenges
 {
@@ -18,11 +17,11 @@ namespace FunctionChallenges
             // string str1 = "HelloWorld", str2 = "Programming";
             // string str3 = "Hi", str4 = "Programming";
                           
-            // SwapObjects(ref  num1,ref  num2); // Expected outcome: num1 = 30, num2 = 25  
-            // SwapObjects( ref num3, ref num4); // Error: Value must be more than 18
+            // SwapObjects(ref ref  num1,refref  num2); // Expected outcome: num1 = 30, num2 = 25  
+            // SwapObjects( ref ref num3, refref num4); // Error: Value must be more than 18
 
-            // SwapObjects(ref str1,ref  str2); // Expected outcome: str1 = "Programming", str2 = "HelloWorld"
-            // SwapObjects(ref str3, ref str4); // Error: Length must be more than 5
+            // SwapObjects(ref ref str1,ref ref  str2); // Expected outcome: str1 = "Programming", str2 = "HelloWorld"
+            // SwapObjects(ref ref str3, ref ref str4); // Error: Length must be more than 5
 
             // SwapObjects( true, false); // Error: Upsupported data type
             // SwapObjects( num1, str1); // Error: Objects must be of same types
@@ -32,9 +31,9 @@ namespace FunctionChallenges
             
 
             // Challenge 3: Guessing Game
-            Console.WriteLine("\nChallenge 3: Guessing Game");
+            // Console.WriteLine("\nChallenge 3: Guessing Game");
             
-            GuessingGame(); // Expected outcome: User input until the correct number is guessed or user inputs `Quit`
+            // GuessingGame(); // Expected outcome: User input until the correct number is guessed or user inputs `Quit`
 
             //Challenge 4: Simple Word Reversal
             Console.WriteLine("\nChallenge 4: Simple Word Reversal");
@@ -43,32 +42,7 @@ namespace FunctionChallenges
             Console.WriteLine(reversed); // Expected outcome: "sihT si eht lanigiro !ecnetnes"
         }
 
-
-
-
-
-        static void StringNumberProcessor(params object[] inputs)
-        {
-            string concatenate = "";
-            int sum = 0;
-            foreach (var input in inputs) {
-                if (input is string)
-                {
-                   concatenate += (string)input + " ";
-                }
-                else {
-                    sum += (int)input;
-
-                }
-
-
-             }
-            concatenate= concatenate.Trim();
-        Console.WriteLine($"{concatenate}; {sum}");
-            
-        }
-
-        static void GuessingGame()
+         static void GuessingGame()
         {
             Random random = new Random();
         int randomNumber = random.Next(1, 100);
@@ -105,25 +79,35 @@ namespace FunctionChallenges
             
         }
 
-       
-     
-   
+        // private static string ReverseWords(string sentence)
+        // {
+        //     throw new NotImplementedException();
+        // }
+
+        // private static void SwapObjects(ref int num1, ref int num2)
+        // {
+        //     throw new NotImplementedException();
+        // }
+
+         static void StringNumberProcessor(params object[] inputs)
+        {
+            string concatenate = "";
+            int sum = 0;
+            foreach (var input in inputs) {
+                if (input is string)
+                {
+                   concatenate += (string)input + " ";
+                }
+                else {
+                    sum += (int)input;
+
+                }
 
 
-         
-         public static string ReverseWords(string sentence)
-    {
-       
-           string[] words = sentence.Split(' ');
-
-
-        IEnumerable<string> reversedWords = words.Select(word => new string(word.Reverse().ToArray()));
-
-
-string reversedSentence = string.Join(" ", reversedWords);
-
-return reversedSentence;
-
-    }
+             }
+            concatenate= concatenate.Trim();
+        Console.WriteLine($"{concatenate}; {sum}");
+            
+        }
     }
 }
